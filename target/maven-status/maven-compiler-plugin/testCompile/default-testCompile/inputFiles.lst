@@ -1,5 +1,10 @@
-C:\testingFramework\src\test\java\com.epam\config\DriverType.java
-C:\testingFramework\src\test\java\com.epam\config\DriverSetup.java
-C:\testingFramework\src\test\java\DriverBase.java
-C:\testingFramework\src\test\java\BasicIT.java
-C:\testingFramework\src\test\java\com.epam\config\DriverFactory.java
+C:\testingFramework\src\test\java\tests\SearchTest.java
+C:\testingFramework\src\test\java\pages\SearchResultsPage.java
+C:\testingFramework\src\test\java\utils\DriverFactory.java
+C:\testingFramework\src\test\java\tests\BaseTest.java
+C:\testingFramework\src\test\java\steps\SearchResultsSteps.java
+C:\testingFramework\src\test\java\steps\SearchSteps.java
+C:\testingFramework\src\test\java\utils\Browser.java
+C:\testingFramework\src\test\java\utils\PropertyReader.java
+C:\testingFramework\src\test\java\pages\SearchPage.java
+C:\testingFramework\src\test\java\pages\BasePage.java
