@@ -37,7 +37,7 @@
                             <suiteXmlFiles>
                             <suiteXmlFile>AllTests.xml</suiteXmlFile>
                             </suiteXmlFiles>
-                            <reportsDirectory> </reportsDirectory>
+                            <reportsDirectory>C:\Program Files (x86)\Jenkins\workspace\TestAutomationRun\target</reportsDirectory>
                         </configuration>
                     </plugin>
                 </plugins>
