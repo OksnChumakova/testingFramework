@@ -33,7 +33,7 @@ public class PropertyReader {
     }
 
     public static Browser getBrowser() {
-        System.clearProperty("browser");
+//         System.clearProperty("browser");
         return Browser.valueOf(getProperty("browser"));
     }
 }
