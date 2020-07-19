@@ -7,8 +7,8 @@ public class SearchTest extends BaseTest {
     @Test(dataProvider = "dataProvider")
     public void openGoogleTest(String text) throws InterruptedException {
         steps.executeSearchByKeyword(text)
-                .verifyThatTopResultContainsCorrectText("sel")
-                .verifyThatTopResultContainsProperAttributeText("LC20lb DKV0Md");
+                .verifyThatTopResultContainsCorrectText("selenium")
+                .verifyThatTopResultContainsProperAttributeText("The Selenium Browser Automation Project :: Documentation ...");
 
     }
 

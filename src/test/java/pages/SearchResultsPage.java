@@ -11,21 +11,17 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 public class SearchResultsPage extends BasePage {
 
-    @FindBy(xpath = "//div[@data-hveid='CAMQAA' or @data-hveid='CAQQAA']//h3")
-    private WebElement resultRow;
-
-    @FindBy(xpath = "//div[@data-hveid='CAMQAA' or @data-hveid='CAQQAA']//h3")
+    @FindBy(css = "h3[class='LC20lb DKV0Md']")
     private List<WebElement> resultRows;
 
 
-    public void assertThatTopResultContainsCorrectText(String text) {
-        wait.until(ExpectedConditions.visibilityOfAllElements(resultRows));
-        assertThat(resultRows.stream().map(e -> e.getText()).collect(Collectors.toList()).toString().toLowerCase())
-                .as("Wrong text has been displayed").contains(text);
+    public void assertThatResultsContainCorrectText(String text) {
+        assertThat(resultRows.stream().map(e -> e.getText().contains(text)).collect(Collectors.toList()).size())
+                .as("Wrong text has been displayed").isEqualTo(resultRows.size());
 
     }
 
-    public void assertThatTopResultContainsProperAttributeText(String text) {
-        assertThat(resultRow.getAttribute("class")).as("Wrong attribute text").contains(text);
+    public void assertThatTopResultTagContainsProperText(String text) {
+        assertThat(resultRows.get(0).getText()).as("Wrong tag text").contains(text);
     }
 }
