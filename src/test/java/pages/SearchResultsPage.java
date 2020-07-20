@@ -21,7 +21,8 @@ public class SearchResultsPage extends BasePage {
         assertThat(resultRows
                 .stream()
                 .filter(e -> e.getText().toLowerCase().contains(text.toLowerCase()))
-                .count())
+                .count());
+        assertThat(resultRows.stream().map(e -> e.getText().toLowerCase().contains(text)).collect(Collectors.toList()).size())
                 .as("Wrong text has been displayed").isEqualTo(resultRows.size());
 
     }
