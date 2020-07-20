@@ -16,7 +16,7 @@ public class SearchResultsPage extends BasePage {
 
 
     public void assertThatResultsContainCorrectText(String text) {
-        assertThat(resultRows.stream().map(e -> e.getText().contains(text)).collect(Collectors.toList()).size())
+        assertThat(resultRows.stream().map(e -> e.getText().toLowerCase().contains(text)).collect(Collectors.toList()).size())
                 .as("Wrong text has been displayed").isEqualTo(resultRows.size());
 
     }
