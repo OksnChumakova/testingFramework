@@ -20,6 +20,9 @@
 
         <maven-compiler-plugin.version>3.7.0</maven-compiler-plugin.version>
         <maven-failsafe-plugin.version>2.21.0</maven-failsafe-plugin.version>
+
+        <aspectj.version>1.9.5</aspectj.version>
+        <allure.version>2.13.1</allure.version>
         <!-- Configurable variables -->
         <threads>2</threads>
         <browser>firefox</browser>
@@ -32,16 +35,32 @@
                     <plugin>
                         <groupId>org.apache.maven.plugins</groupId>
                         <artifactId>maven-surefire-plugin</artifactId>
-                        <version>3.0.0-M4</version>
+                        <version>2.22.2</version>
                         <configuration>
-                            <suiteXmlFiles>
-                            <suiteXmlFile>AllTests.xml</suiteXmlFile>
-                            </suiteXmlFiles>
-                            <reportsDirectory>C:\Program Files (x86)\Jenkins\workspace\TestAutomationRun\target</reportsDirectory>
+                            <argLine>
+                                -javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/${aspectj.version}/aspectjweaver-${aspectj.version}.jar"
+                            </argLine>
+                        </configuration>
+                        <dependencies>
+                            <dependency>
+                                <groupId>org.aspectj</groupId>
+                                <artifactId>aspectjweaver</artifactId>
+                                <version>${aspectj.version}</version>
+                            </dependency>
+                        </dependencies>
+                    </plugin>
+                    <plugin>
+                        <groupId>io.qameta.allure</groupId>
+                        <artifactId>allure-maven</artifactId>
+                        <version>2.10.0</version>
+                        <configuration>
+                            <reportVersion>${allure.version}</reportVersion>
+                            <allureDownloadUrl>https://repo.maven.apache.org/maven2/io/qameta/allure/allure-commandline/${allure.version}/allure-commandline-${allure.version}.zip</allureDownloadUrl>
                         </configuration>
                     </plugin>
                 </plugins>
             </build>
+
 
     <dependencies>
         <dependency>
@@ -70,5 +89,14 @@
             <version>${assertj.version}</version>
             <scope>test</scope>
         </dependency>
+
+        <!-- https://mvnrepository.com/artifact/io.qameta.allure/allure-testng -->
+        <dependency>
+            <groupId>io.qameta.allure</groupId>
+            <artifactId>allure-testng</artifactId>
+            <version>2.13.5</version>
+        </dependency>
+
     </dependencies>
 </project>
+
